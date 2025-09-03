@@ -29,7 +29,13 @@ public class MaxMinObjectMain {
         System.out.println("");
         //Determinando el maximo y minimo del Array
         System.out.println("El maximo valor es:"+ mm.getMaxValor(X,null));
-        System.out.println("El minimo valor es:"+ mm.getMinValor(X,null)); 
+        System.out.println("El minimo valor es:"+ mm.getMinValor(X,null));
+
+
+        // funciona
+        Integer[] Y = {1,2,3,45,6,7};
+        System.out.println(mm.getMaxValor(Y, null));
+        System.out.println(mm.getMinValor(Y, null));
     }
     private void testMaxMinPersona(){
     }
