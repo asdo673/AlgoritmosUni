@@ -58,8 +58,9 @@ public class Persona implements Comparable<Persona>{
     }    
 
     @Override
-    public boolean equals(Object o) {       
-        return name.equals(((Persona)o).name);
+    public boolean equals(Object o) {
+        if (o instanceof Persona) return this.name.equals(((Persona)o).name);
+        return false;
     }    
 
     @Override
@@ -68,6 +69,8 @@ public class Persona implements Comparable<Persona>{
                this.age+"||"+
                this.gender;
     }
+
+    // overload en caso quieras pasar atributo directamente
     public int compareTo(Persona persona,int attribute){
         int comparisonResult;
         if(attribute==AGE){
@@ -85,11 +88,15 @@ public class Persona implements Comparable<Persona>{
         return comparisonResult;
     }    
 
+    // por defecto se usa setted atributte
     @Override
     public int compareTo(Persona o) {
         return compareTo(o,compareAttribute);
     }
-    
+
+    // USO DE ANONYMOUS CLASSES
+    // funcionan como local classes pero estas se definen en expressions y no poseen nombre. Ademas que solo instancian un objeto
+    // Se debe declarar "new interfaceToImplement()" o "new classToExtend()"
     //Comparador de edad
     public static final Comparator<Persona> POR_EDAD=new Comparator<>(){
         @Override
